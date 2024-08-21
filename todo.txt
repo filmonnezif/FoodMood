@@ -1,0 +1,14 @@
+this is for tmrw 
+- change the theme to gray and dark gray with the texts beieng white and the accent color being purple
+- finish all the input taking forms the card and all 
+
+continue to 
+- configure fastapi and how to use it with vue
+- try demo state transfers  
+done up to here
+
+# use langchain and groq
+# find a good list of recipies
+
+make it eye caching and appealing it ugly now
+first host it then gradually add features

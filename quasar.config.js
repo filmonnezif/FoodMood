@@ -20,7 +20,7 @@ module.exports = configure(function (/* ctx */) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: [
+    boot: ['axios'
       
       
     ],
@@ -105,7 +105,7 @@ module.exports = configure(function (/* ctx */) {
 
     // animations: 'all', // --- includes all animations
     // https://v2.quasar.dev/options/animations
-    animations: [],
+    animations: ['fadeIn', 'fadeOut'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#property-sourcefiles
     // sourceFiles: {
