@@ -1,1 +1,33 @@
-// app global css in SCSS form
+// In your app.scss file
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --q-font-family: 'Poppins', sans-serif;
+}
+
+/* Adjusting specific font weights and sizes */
+body {
+  --q-body-font-size: 16px;
+  --q-body-line-height: 1.5;
+  --q-body-font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  --q-heading-font-weight: 600; // Poppins often looks better with 600 for headings
+}
+
+/* You can also target specific Quasar components */
+.q-btn {
+  --q-primary-color: #your-color-here;
+}
+
+/* Optional: Add some global styles to fine-tune the typography */
+body {
+  font-family: var(--q-font-family);
+}
+
+.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6 {
+  font-family: var(--q-font-family);
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
