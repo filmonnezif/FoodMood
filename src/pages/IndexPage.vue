@@ -64,7 +64,6 @@
                   outlined
                   rounded
                   label="Add the ingredients you have"
-                  hint="Tap enter or click the add icon to add your ingredients"
                   label-color="white"
                   color="purple"
                   input-class="text-white"
@@ -75,6 +74,7 @@
                     <q-btn color="white" round dense flat icon="add" @click="addItem" />
                   </template>
                 </q-input>
+                <div class="text-purple">To add your ingredients click Enter or the plus icon!</div>
             </div>
           </q-card-section>
         </q-card>
@@ -190,11 +190,13 @@
                 :label="`Step ${index + 1}: ${step.short_instruction}`"
                 header-class="text-white"
                 :default-opened="index === 0"
-              >
+                :ref="el => { if (el) stepRefs[`step${index}`] = el }"
+                >
                 <q-card class="bg-grey-10 modern-card">
                   <q-card-section>
                     <p>{{ step.detailed_instruction }}</p>
-                    <q-checkbox v-model="step.completed" label="Mark as completed" color="purple" />
+                    <q-checkbox v-model="step.completed" label="Mark as completed" color="purple" keep-color @click="handleStepCompletion(index)"
+                    />
                   </q-card-section>
                 </q-card>
               </q-expansion-item>
@@ -327,18 +329,20 @@ const getRecipe = async () => {
 
 const showAvatarDialog = ref(false);
 const avatars = [
-  { name:"Gordan Ramsey",value: 'Gordon_Ramsey', image: 'src/assets/gordan.jpg', description: 'The world-renowned chef' },
-  { name: "Liya", value: 'Supportive_GF', image: 'src/assets/gff.jpg', description: 'Your imaginary girlfriend who loves cooking' },
-  { name: "John", value: 'Supportive_BF', image: 'src/assets/bf.jpg', description: 'Your imaginary encouraging boyfriend who enjoys helping in the kitchen' },
-  { name: "Habeshan Mom", value: 'Habeshan_Mom', image: 'src/assets/mom.jpg', description: 'Loving Ethiopian mother with traditional cooking wisdom' },
-  { name: "Mike", value: 'Gym_Bro', image: 'src/assets/gym.jpg', description: 'A gym bro who loves cooking and woking out' },
-  { name: "Filmon", value: 'Filmon', image: 'src/assets/gym.jpg', description: 'A lazy college student who hates cooking' },
+  { name:"Gordan Ramsey",value: 'Gordon_Ramsey', image: 'https://ucarecdn.com/fdc181ff-1093-4e52-95e9-2a818131831e/-/preview/980x1000/', description: 'The world-renowned chef' },
+  { name: "Hareg", value: 'Habeshan_Mom', image: 'https://ucarecdn.com/68e18db6-f3b7-466a-8728-6f9fc410bec1/-/preview/916x1000/', description: 'Loving Ethiopian mother with traditional cooking wisdom' },
+  { name: "Liya", value: 'Supportive_GF', image: 'https://ucarecdn.com/7ddc4286-42c3-489b-8baa-5ac6f6f1eac6/-/preview/300x300/', description: 'Your imaginary habesha girlfriend who loves cooking' },
+  { name: "John", value: 'Supportive_BF', image: 'https://ucarecdn.com/c950e8b5-c236-45a8-a8c7-250a88b6c54d/-/preview/1000x950/', description: 'Your imaginary habesha boyfriend who enjoys helping in the kitchen' },
+  { name: "Mike", value: 'Gym_Bro', image: 'https://ucarecdn.com/15478e0d-606a-43c9-858c-40753ab0e162/-/preview/959x1000/', description: 'A gym bro who loves cooking and woking out' },
+  { name: "Filmon", value: 'Filmon', image: 'https://ucarecdn.com/1c0e418a-2b23-499d-aa3b-bc1cb424ab4b/-/preview/640x640/', description: 'A lazy college student who hates cooking' },
 ];
 const selectedAvatar = ref('');
 const avatarResponse = ref(null);
 const isLoading = ref(false);
 const pageBottom = ref(null);
 const avatarName = ref('');
+const stepRefs = ref({});
+
     
 const cookRecipe = async () => {
   showAvatarDialog.value = true;
@@ -390,6 +394,18 @@ const addItem = () => {
 const removeItem = (index) => {
   items.value.splice(index, 1)
 }
+const handleStepCompletion = (index) => {
+  nextTick(() => {
+    avatarResponse.value.steps[index].completed = true;
+    
+    if (index < avatarResponse.value.steps.length - 1) {
+      const nextStepRef = `step${index + 1}`;
+      if (stepRefs.value[nextStepRef]) {
+        stepRefs.value[nextStepRef].show();
+      }
+    }
+  });
+};
 
 </script>
 <style lang="scss">

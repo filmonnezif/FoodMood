@@ -1,27 +1,30 @@
 <template>
     <div class="landing-page q-mt-none">
       <div class="content">
-        <h1 class="text-h2 text-weight-bold text-purple q-mb-lg q-mt-none">FoodMood</h1>
+        <q-avatar size="150px" class="q-ma-sm">
+            <img src='https://ucarecdn.com/7710d474-c049-4897-ac48-9e2cf83fe64e/-/preview/500x500/' alt="Liya">
+        </q-avatar>
+        <h1 class="text-h3 text-weight-bold text-purple q-mb-lg q-mt-none">FoodMood</h1>
         <p class="text-h5 q-mb-lg">Get food based on your mood, time and ingridients you have</p>
         <p class="text-h5 q-mb-lg"> Cook your foods with your choosen character </p>
         <div class="character-avatars">
             <q-avatar size="100px" class="q-ma-sm">
-            <img src="src/assets/gordan.jpg" alt="Gordon Ramsay">
+            <img src='https://ucarecdn.com/fdc181ff-1093-4e52-95e9-2a818131831e/-/preview/980x1000/' alt="Gordon Ramsay">
             </q-avatar>
             <q-avatar size="100px" class="q-ma-sm">
-            <img src="src/assets/mom.jpg" alt="Mom">
+            <img src='https://ucarecdn.com/68e18db6-f3b7-466a-8728-6f9fc410bec1/-/preview/916x1000/' alt="Mom">
             </q-avatar>
             <q-avatar size="100px" class="q-ma-sm">
-            <img src="src/assets/gff.jpg" alt="Liya">
+            <img src='https://ucarecdn.com/7ddc4286-42c3-489b-8baa-5ac6f6f1eac6/-/preview/300x300/' alt="Liya">
             </q-avatar>
             <q-avatar size="100px" class="q-ma-sm">
-            <img src="src/assets/bf.jpg" alt="John">
+            <img src='https://ucarecdn.com/c950e8b5-c236-45a8-a8c7-250a88b6c54d/-/preview/1000x950/' alt="John">
             </q-avatar>
             <q-avatar size="100px" class="q-ma-sm">
-            <img src="src/assets/gym.jpg" alt="Mike">
+            <img src='https://ucarecdn.com/15478e0d-606a-43c9-858c-40753ab0e162/-/preview/959x1000/' alt="Mike">
             </q-avatar>
             <q-avatar size="100px" class="q-ma-sm">
-            <img src="src/assets/gym.jpg" alt="Mike">
+            <img src= 'https://ucarecdn.com/1c0e418a-2b23-499d-aa3b-bc1cb424ab4b/-/preview/640x640/' alt="Mike">
             </q-avatar>
         </div>
         <q-btn
@@ -30,7 +33,7 @@
           label="Get Started"
           size="lg"
           to="/index"
-          class="q-px-xl q-py-sm"
+          class="q-px-xl q-py-sm q-mb-lg"
         />
       </div>
     </div>
@@ -56,7 +59,7 @@
 
 .content {
   max-width: 600px;
-  padding: 3rem 2rem; // adjusted padding
+  padding: 3rem 2rem; 
 }
 
 header {
@@ -70,17 +73,17 @@ header {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 2rem; // added margin bottom
+  margin-bottom: 1rem; // 
 }
 
 .character-avatars .q-avatar {
-  margin: 10px; // added margin to create some space between avatars
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // added box shadow
+  margin: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
 }
 
 .q-btn {
-  margin-top: 2rem; // added margin top to create some space
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // added box shadow
+  margin-top: 1rem; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
   
   </style>

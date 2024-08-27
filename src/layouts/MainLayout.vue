@@ -3,6 +3,9 @@
     <q-header v-if="!isLandingPage" elevated class="modern-header">
       <q-toolbar>
         <!--<q-btn flat dense round icon="menu" @click="toggleLeftDrawer" />-->
+        <q-avatar size="50px" class="q-ma-sm">
+            <img src='https://ucarecdn.com/7710d474-c049-4897-ac48-9e2cf83fe64e/-/preview/500x500/' alt="Liya">
+        </q-avatar>
         <q-toolbar-title>FoodMood</q-toolbar-title>
       </q-toolbar>
     </q-header>
